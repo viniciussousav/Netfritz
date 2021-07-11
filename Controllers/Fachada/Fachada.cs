@@ -84,34 +84,34 @@ namespace Netfritz.Controllers
             return _cadastroController.ObterAdministrador(id);
         }
         
-        [HttpPost("admin/{id}/cadastrar-admin")]
-        public IActionResult CadastrarAdministrador(string id, [FromBody] AdministradorEntity administrador)
+        [HttpPost("admin/cadastrar-admin")]
+        public IActionResult CadastrarAdministrador([FromBody] AdministradorEntity administrador)
         {
-            return _cadastroController.CadastrarAdministrador(id, administrador);
+            return _cadastroController.CadastrarAdministrador(administrador);
         }
 
-        [HttpGet("admin/{id}/visualizar-vendas")]
-        public IActionResult VisualiarVendas(string id)
+        [HttpGet("admin/visualizar-vendas")]
+        public IActionResult VisualiarVendas()
         {
-            return _compraController.ListarCompras(id);
+            return _compraController.ListarCompras();
         }
 
-        [HttpPost("admin/{id}/cadastrar-fita")]
-        public IActionResult CadastrarFita(string id, [FromBody] FitaEntity fita)
+        [HttpPost("admin/cadastrar-fita")]
+        public IActionResult CadastrarFita([FromBody] FitaEntity fita)
         {
-            return _fitaController.CadastrarFita(id, fita);
+            return _fitaController.CadastrarFita(fita);
         }
 
-        [HttpPut("admin/{id}/atualizar-fita")]
-        public IActionResult AtualizarFita(string id, [FromBody] FitaEntity fita)
+        [HttpPut("admin/atualizar-fita/{fitaId}")]
+        public IActionResult AtualizarFita(string fitaId, [FromBody] FitaEntity fita)
         {
-            return _fitaController.AtualizarFita(id, fita);
+            return _fitaController.AtualizarFita(fitaId, fita);
         }
 
-        [HttpDelete("admin/{id}/remover-fita/{fitaId}")]
-        public IActionResult RemoverFita(string id, string fitaId)
+        [HttpDelete("admin/remover-fita/{fitaId}")]
+        public IActionResult RemoverFita( string fitaId)
         {
-            return _fitaController.RemoverFita(id, fitaId);
+            return _fitaController.RemoverFita(fitaId);
         }
 
         // Fitas

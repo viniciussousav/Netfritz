@@ -19,15 +19,8 @@ namespace Netfritz.Controllers
             _usuarioRepository = usuarioRepository;
         }
 
-        public IActionResult ListarCompras(string adminId)
+        public IActionResult ListarCompras()
         {
-            var admin = _usuarioRepository.GetAdministrador(adminId);
-
-            if (admin is null)
-            {
-                return Response.CreateResponse("Administrador não encontrado", StatusCodes.Status401Unauthorized);
-            }
-
             try
             {
                 var compras = _compraRepository.GetCompras();

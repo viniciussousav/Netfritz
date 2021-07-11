@@ -138,7 +138,7 @@ namespace Netfritz.Controllers
             }
         }
 
-        public IActionResult CadastrarAdministrador(string adminId, AdministradorEntity administrador)
+        public IActionResult CadastrarAdministrador(AdministradorEntity administrador)
         {
             try
             {

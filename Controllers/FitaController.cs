@@ -59,17 +59,10 @@ namespace Netfritz.Controllers
             }
         }
 
-        public IActionResult CadastrarFita(string adminId, FitaEntity fita)
+        public IActionResult CadastrarFita(FitaEntity fita)
         {
             try
             {
-                var admin = _usuarioRepository.GetAdministrador(adminId);
-
-                if (admin is null)
-                {
-                    return Response.CreateResponse("Administrador não encontrado", StatusCodes.Status401Unauthorized);
-                }
-
                 var checkFitaTitulo = _fitaRepository.GetFitas().Any(f => f.Titulo == fita.Titulo);
 
                 if (checkFitaTitulo)
@@ -87,15 +80,13 @@ namespace Netfritz.Controllers
             }
         }
 
-        public IActionResult AtualizarFita(string adminId, FitaEntity fita)
+        public IActionResult AtualizarFita(string id, FitaEntity fita)
         {
             try
             {
-                var admin = _usuarioRepository.GetAdministrador(adminId);
-
-                if (admin is null)
+                if(id != fita.Id)
                 {
-                    return Response.CreateResponse("Administrador não encontrado", StatusCodes.Status401Unauthorized);
+                    return Response.CreateResponse("Os ids são diferentes", StatusCodes.Status400BadRequest);
                 }
 
                 var fitaFind = _fitaRepository.GetFitas().FirstOrDefault(f => f.Id == fita.Id);
@@ -115,15 +106,8 @@ namespace Netfritz.Controllers
             }
         }
 
-        public IActionResult RemoverFita(string adminId, string fitaId)
+        public IActionResult RemoverFita(string fitaId)
         {
-            var admin = _usuarioRepository.GetAdministrador(adminId);
-
-            if (admin is null)
-            {
-                return Response.CreateResponse("Administrador não encontrado", StatusCodes.Status401Unauthorized);
-            }
-
             try
             {
                 var fita = _fitaRepository.GetFitas().FirstOrDefault(f => f.Id == fitaId);
