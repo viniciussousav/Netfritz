@@ -7,7 +7,7 @@ namespace Netfritz.Core.Entities
 {
     public class AdministradorEntity : Usuario
     {
-        public AdministradorEntity(string nome, string email, string senha, DateTime dataCriacao) : base(nome, email, senha, dataCriacao) 
+        public AdministradorEntity(string nome, string email, string senha) : base(nome, email, senha) 
         {
         
         }

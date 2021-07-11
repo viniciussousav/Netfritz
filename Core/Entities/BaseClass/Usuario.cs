@@ -9,7 +9,7 @@ namespace Netfritz.Core.Entities
 {
     public abstract class Usuario
     {
-        protected Usuario(string nome, string email, string senha, DateTime dataCriacao)
+        protected Usuario(string nome, string email, string senha)
         {
             Nome = nome;
             Email = email;
@@ -30,5 +30,6 @@ namespace Netfritz.Core.Entities
         public string Senha { get; protected set; }
 
         public DateTime DataCriacao { get; protected set;  }
+
     }
 }

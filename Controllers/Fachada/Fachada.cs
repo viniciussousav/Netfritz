@@ -24,62 +24,114 @@ namespace Netfritz.Controllers
         public Fachada(IUsuarioRepository usuarioRepository, IFitaRepository fitaRepository, ICompraRepository compraRepository)
         {
             _authController = new AuthController(usuarioRepository);
+
             _cadastroController = new CadastroController(usuarioRepository);
-            _fitaController = new FitaController(fitaRepository);
-            _compraController = new CompraController(compraRepository);
+            _fitaController = new FitaController(fitaRepository, usuarioRepository);
+            _compraController = new CompraController(compraRepository, usuarioRepository);
         }
 
-        /*
-         * LOGIN
-         */
+        // Login
 
-        [HttpPost("cliente/login")]
+        [HttpPost("login")]
         public IActionResult Login([FromBody] Login login)
         {
             return _authController.Login(login.Email, login.Senha);
         }
 
-        /*
-         * CLIENTE
-         */
+        // Cliente
+    
+        [HttpGet("clientes/{id}")]
+        public IActionResult ObterCliente(string id)
+        {
+            return _cadastroController.ObterCliente(id);
+        }
 
-
-        [HttpPost("cliente/cadastrar")]
+        [HttpPost("clientes/cadastrar")]
         public IActionResult CadastrarCliente([FromBody] ClienteEntity cliente)
         {
             return _cadastroController.CadastrarCliente(cliente);
         }
 
-        /*
-         * FITAS
-         */
-
-        [HttpGet("fitas")]
-        public IActionResult PesquisarFitas([FromQuery] string busca)
+        [HttpPut("clientes/{id}/atualizar")]
+        public IActionResult AtualizarCliente(string id, [FromBody] ClienteEntity cliente)
         {
-            return _fitaController.PesquisarFitas(busca);
+            return _cadastroController.AtualizarCliente(id, cliente);
+        }
+
+        [HttpDelete("clientes/{id}/remover")]
+        public IActionResult RemoverCliente(string id)
+        {
+            return _cadastroController.RemoverCliente(id);
+        }
+
+        [HttpGet("clientes/{id}/historico-compras")]
+        public IActionResult ListarCompras(string id)
+        {
+            return _compraController.ListarComprasCliente(id);
+        }
+
+        [HttpPost("clientes/{id}/comprar")]
+        public IActionResult RealizarCompra(string id, [FromBody] string fitaId)
+        {
+            return _compraController.RealizarCompra(id, fitaId);
+        }
+
+        [HttpPut("clientes/{id}/avaliar-compra/{compraId}")]
+        public IActionResult AvaliarCompra(string id, string compraId, [FromBody] AvaliacaoEntity avaliacao)
+        {
+            return _compraController.AvaliarCompra(id, compraId, avaliacao);
+        }
+
+        // Administrador 
+
+        [HttpGet("admin/{id}")]
+        public IActionResult ObterAdministrador(string id)
+        {
+            return _cadastroController.ObterAdministrador(id);
         }
         
-        [HttpPost("fitas/cadastrar")]
+        [HttpPost("admin/cadastrar-admin")]
+        public IActionResult CadastrarAdministrador([FromBody] AdministradorEntity administrador)
+        {
+            return _cadastroController.CadastrarAdministrador(administrador);
+        }
+
+        [HttpGet("admin/visualizar-vendas")]
+        public IActionResult VisualiarVendas()
+        {
+            return _compraController.ListarCompras();
+        }
+
+        [HttpPost("admin/cadastrar-fita")]
         public IActionResult CadastrarFita([FromBody] FitaEntity fita)
         {
             return _fitaController.CadastrarFita(fita);
         }
 
-        /*
-         * COMPRAS
-         */
-
-        [HttpPost("compras/realizar")]
-        public IActionResult RealizarCompra([FromBody] CompraEntity compra)
+        [HttpPut("admin/atualizar-fita/{fitaId}")]
+        public IActionResult AtualizarFita(string fitaId, [FromBody] FitaEntity fita)
         {
-            return _compraController.RealizarCompra(compra);
+            return _fitaController.AtualizarFita(fitaId, fita);
         }
 
-        [HttpPut("compras/{id}/avaliar")]
-        public IActionResult AvaliarCompra(string id, [FromBody] AvaliacaoEntity avaliacao)
+        [HttpDelete("admin/remover-fita/{fitaId}")]
+        public IActionResult RemoverFita( string fitaId)
         {
-            return _compraController.AvaliarCompra(id, avaliacao);
+            return _fitaController.RemoverFita(fitaId);
+        }
+
+        // Fitas
+
+        [HttpGet("fitas")]
+        public IActionResult PesquisarFitas(string busca)
+        {
+            return _fitaController.PesquisarFitas(busca);
+        }
+        
+        [HttpGet("fitas/{id}")]
+        public IActionResult PesquisarFita(string id)
+        {
+            return _fitaController.ObterFita(id);
         }
     }
 }

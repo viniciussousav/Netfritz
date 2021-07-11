@@ -23,9 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Core\Models\InputModel\" />
-    <Folder Include="Core\Models\ViewModel\" />
-    <Folder Include="Core\Models\UpdateModel\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

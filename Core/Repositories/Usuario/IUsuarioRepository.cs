@@ -9,7 +9,7 @@ namespace Netfritz.Core.Repositories
     public interface IUsuarioRepository
     {
 
-        string? Login(string email, string senha);
+        Usuario Login(string email, string senha);
 
         /*
          * Usuário: Cliente
@@ -28,6 +28,8 @@ namespace Netfritz.Core.Repositories
         /*
          * Usuário: Administrador
          */
+
+        List<AdministradorEntity> GetAdministradores();
 
         AdministradorEntity GetAdministrador(string id);
 

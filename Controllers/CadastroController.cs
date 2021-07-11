@@ -10,35 +10,160 @@ namespace Netfritz.Controllers
 {
     public class CadastroController
     {
-        private readonly IUsuarioRepository _clienteRepository;
+        private readonly IUsuarioRepository _usuarioRepository;
 
-        public CadastroController(IUsuarioRepository clienteRepository)
+        public CadastroController(IUsuarioRepository usuarioRepository)
         {
-            _clienteRepository = clienteRepository;
+            _usuarioRepository = usuarioRepository;
+        }
+
+        // Cliente
+
+        public IActionResult ListarClientes()
+        {
+            try
+            {
+                var clientes = _usuarioRepository.GetClientes();
+
+                return Response.CreateResponse(clientes, StatusCodes.Status200OK);
+            }
+            catch (Exception)
+            {
+                return Response.CreateResponse("Não foi possível listar os clientes", StatusCodes.Status500InternalServerError);
+            }
+        }
+
+        public IActionResult ObterCliente(string id)
+        {
+            try
+            {
+                var cliente = _usuarioRepository.GetCliente(id);
+
+                if (cliente is null)
+                {
+                    return Response.CreateResponse("Cliente não encontrado", StatusCodes.Status404NotFound);
+                }
+
+                return Response.CreateResponse(cliente, StatusCodes.Status200OK);
+            }
+            catch (Exception)
+            {
+                return Response.CreateResponse("Não foi possível obter o cliente", StatusCodes.Status500InternalServerError);
+            }
         }
 
         public IActionResult CadastrarCliente(ClienteEntity cliente)
         {
             try
             {
-                if (CheckClienteEmail(cliente.Email))
+                if (CheckEmail(cliente.Email))
                 {
-                    return Response.CreateResponse("O email já está em uso", StatusCodes.Status409Conflict);
+                    return Response.CreateResponse("O email já está cadastrado", StatusCodes.Status409Conflict);
                 }
 
-                _clienteRepository.InserirCliente(cliente);
+                _usuarioRepository.InserirCliente(cliente);
 
-                return Response.CreateResponse("Cliente inserido com sucesso", StatusCodes.Status202Accepted);
+                return Response.CreateResponse(cliente, StatusCodes.Status201Created);
             }
             catch (Exception)
             {
-                return Response.CreateResponse("Erro interno, tente novamente", StatusCodes.Status500InternalServerError);
+                return Response.CreateResponse("Não foi possível realizar o cadastro", StatusCodes.Status500InternalServerError);
             }
         }
 
-        public bool CheckClienteEmail(string email)
+        public IActionResult AtualizarCliente(string id, ClienteEntity cliente)
         {
-            return _clienteRepository.GetClientes().Any(c => c.Email == email);
+            try
+            {
+                var findCliente = _usuarioRepository.GetCliente(id);
+
+                if (findCliente is null)
+                {
+                    return Response.CreateResponse("Cliente não encontrado", StatusCodes.Status404NotFound);
+                }
+
+                _usuarioRepository.AtualizarCliente(findCliente);
+
+                return Response.CreateResponse("Cliente atualizado com sucesso", StatusCodes.Status200OK);
+
+            }
+            catch (Exception)
+            {
+
+                return Response.CreateResponse("Não foi possível atualizar o cliente", StatusCodes.Status500InternalServerError);
+            }
+        }
+
+        public IActionResult RemoverCliente(string id)
+        {
+            try
+            {
+                var findCliente = _usuarioRepository.GetCliente(id);
+
+                if (findCliente is null)
+                {
+                    return Response.CreateResponse("Cliente não encontrado", StatusCodes.Status404NotFound);
+                }
+
+                _usuarioRepository.RemoverCliente(id);
+
+                return Response.CreateResponse("Cliente deletado com sucesso", StatusCodes.Status200OK);
+
+            }
+            catch (Exception)
+            {
+
+                return Response.CreateResponse("Não foi possível deletar o cliente", StatusCodes.Status500InternalServerError);
+            }
+        }
+
+        // Administrador
+
+        public IActionResult ObterAdministrador(string id)
+        {
+            try
+            {
+                var administrador = _usuarioRepository.GetAdministrador(id);
+
+                if (administrador is null)
+                {
+                    return Response.CreateResponse("Administrador não encontrado", StatusCodes.Status404NotFound);
+                }
+
+                return Response.CreateResponse(administrador, StatusCodes.Status200OK);
+            }
+            catch (Exception)
+            {
+                return Response.CreateResponse("Não foi possível obter o administrador", StatusCodes.Status500InternalServerError);
+            }
+        }
+
+        public IActionResult CadastrarAdministrador(AdministradorEntity administrador)
+        {
+            try
+            {
+                var checkEmail = CheckEmail(administrador.Email);
+
+                if (checkEmail)
+                {
+                    return Response.CreateResponse("O email já está cadastrado", StatusCodes.Status409Conflict);
+                }
+
+                _usuarioRepository.InserirAdministrador(administrador);
+
+                return Response.CreateResponse(administrador, StatusCodes.Status201Created);
+            }
+            catch (Exception)
+            {
+                return Response.CreateResponse("Não foi possível cadastrar o administrador", StatusCodes.Status201Created);
+
+            }
+        }
+
+        public bool CheckEmail(string email)
+        {
+            return _usuarioRepository.GetClientes().Any(c => c.Email == email) || 
+                _usuarioRepository.GetAdministradores().Any(a => a.Email == email);
         }
 
     }

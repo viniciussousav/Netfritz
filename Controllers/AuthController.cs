@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Netfritz.Core.Entities;
 using Netfritz.Core.Repositories;
 using System;
 using System.Collections.Generic;
@@ -10,25 +11,27 @@ namespace Netfritz.Controllers
 {
     public class AuthController
     {
-        private readonly IUsuarioRepository _clienteRepository;
+        private readonly IUsuarioRepository _usuarioRepository;
 
-        public AuthController(IUsuarioRepository clienteRepository)
+        public AuthController(IUsuarioRepository usuarioRepository)
         {
-            _clienteRepository = clienteRepository;
+            _usuarioRepository = usuarioRepository;
         }
 
         public IActionResult Login(string email, string senha)
         {
             try
             {
-                var login = _clienteRepository.Login(email, senha);
+                var user = _usuarioRepository.Login(email, senha);
 
-                if (string.IsNullOrEmpty(login))
+                if (user is null)
                 {
-                    return Response.CreateResponse("Email ou senha errados", StatusCodes.Status401Unauthorized);
+                    return Response.CreateResponse("Usuário não encontrado", StatusCodes.Status404NotFound);
                 }
 
-                return Response.CreateResponse(login, StatusCodes.Status202Accepted);
+                return user is ClienteEntity cliente
+                    ? Response.CreateResponse(cliente, StatusCodes.Status202Accepted)
+                    : Response.CreateResponse((AdministradorEntity)user, StatusCodes.Status202Accepted);
             }
             catch (Exception)
             {
