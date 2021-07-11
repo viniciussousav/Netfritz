@@ -151,7 +151,7 @@ namespace Netfritz.Controllers
 
                 _usuarioRepository.InserirAdministrador(administrador);
 
-                return Response.CreateResponse("Administrador criado com sucesso", StatusCodes.Status201Created);
+                return Response.CreateResponse(administrador, StatusCodes.Status201Created);
             }
             catch (Exception)
             {
