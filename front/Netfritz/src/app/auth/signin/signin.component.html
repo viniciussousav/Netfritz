@@ -1,0 +1,50 @@
+<div class="background-login d-flex align-items-center justify-content-center">
+    <div class="container-fluid">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-sm-8 col-md-10 col-lg-10 col-xl-7 wrapper">
+                <div class="row">
+                    <div class="col-md-12 login order-2 order-md-1">
+                        <header class="header">
+                            <div class=""></div><p>Não tem conta? <a [routerLink]="['../SignUp']" href="#">Cadastre-se</a></p>
+                        </header>
+                        <h1 class="login-title">Entrar na Netfritz</h1>
+                        <form [formGroup]="loginForm" class="login-form" (ngSubmit)="signIn()">
+                            <div>
+                                <div class="login-form-item form-group">
+                                    <label class="login-form__label" for="email">Seu email</label>
+                                    <input id="email" emailValidation type="email" [class.is-invalid]="loginForm.get('email').invalid && loginForm.get('email').touched" class="login-form-input form-control" placeholder="Insira seu email"
+                                        name="email" ngModel required formControlName="email">
+                                    <div *ngIf="(loginForm.get('email').invalid && loginForm.get('email').touched) || loginForm.get('email').dirty" class="message-wrapper">
+                                        <span *ngIf="loginForm.get('email').errors?.required" class="text-danger">Email
+                                            obrigatório</span>
+                                        <span *ngIf="loginForm.get('email').errors?.email" class="text-danger">Email deve ser um
+                                            email válido.</span>
+                                        <span *ngIf="loginForm.get('email').errors?.uniqueEmail" class="text-danger">Email deve ser único.</span>
+                                    </div>
+                                </div>
+                                <div class="login-form-item form-group">
+                                    <label class="login-form__label" for="password">Sua senha</label>
+                                    <div class="input-group input-group__password">
+                                        <input [type]="fieldTextType ? 'text' : 'password'" id="password" type="password"
+                                            [class.is-invalid]="loginForm.get('password').invalid && loginForm.get('password').touched" class="login-form-input form-control" placeholder="Insira sua senha" name="password" ngModel
+                                            required formControlName="password">
+                                        <button type="button" class="btn-icon" (click)="toggleFieldTextType()">
+                                            <span class="material-icons">{{changeIcon()}}</span>
+                                        </button>
+                                    </div>
+                                    <div *ngIf="(loginForm.get('password').invalid && loginForm.get('password').touched) || loginForm.get('password').dirty" class="message-wrapper">
+                                        <span *ngIf="loginForm.get('password').errors?.required" class="text-danger">Senha
+                                            obrigatório.</span>
+                                    </div>
+                                </div>
+                                <div class="login-button-container">
+                                    <button type="submit" [disabled]="!loginForm.valid" ref="" class="btn btn-info">ENTRAR</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

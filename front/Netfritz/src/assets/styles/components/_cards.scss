@@ -1,0 +1,13 @@
+.card {
+    border-color: $footer-border-color;
+    box-shadow: 0px 1px 0px rgba(63, 63, 68, 0.05), 0px 1px 3px rgba(63, 63, 68, 0.15);
+    margin-bottom: 26px;
+    .card-header {
+        background-color: $semantic-color-06;
+        border-color: $footer-border-color;
+        .card-title {
+            @include fontSize(16px);
+            margin: 0;
+        }
+    }
+}

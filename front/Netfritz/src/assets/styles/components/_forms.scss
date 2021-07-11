@@ -1,0 +1,93 @@
+input {
+    &.form-control {
+        color: $label-form-color;
+        // border-color: transparent;
+        margin-bottom: 0;
+        transition: ease .2s all;
+        outline: 0;
+        &:focus,
+        &:focus-within {
+            outline: 0;
+            box-shadow: none;
+            border: 2px solid $primary-color-05;
+        }
+        &::placeholder { 
+            color: rgba($semantic-color-07, .3); 
+            opacity: 1;
+        }
+        &:-ms-input-placeholder { 
+            color: rgba($semantic-color-07, .3); 
+        }
+        &::-ms-input-placeholder {
+            color: rgba($semantic-color-07, .3); 
+        }
+        &.ng-valid,
+        &:valid {
+            border-color: $success-color;
+            // background-color: rgba($success-color, .15) !important;
+            // padding-right: calc(1.5em + 0.75em);
+            // background-image: url(/assets/icons/check.svg);
+            // background-repeat: no-repeat;
+            // background-position: 102% -1px;
+            // background-size: calc(2em + 2rem) calc(1.75em + 2.375rem);
+        }
+        &.ng-touched {
+            &.ng-valid {
+                border-color: $success-color;
+                // background-color: rgba($success-color, .15) !important;
+            }
+            &.ng-invalid {
+                border-color: $error-color;
+                // background-color: rgba($error-color, .15) !important;
+            }
+        }
+        &.ng-touched {
+            color: $text-color;
+        }
+    }
+}
+select {
+    &.form-control {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        appearance: none;
+        outline: 0;
+        position: relative;
+        border-color: transparent;
+        margin-bottom: 0;
+        transition: ease .2s all;
+        &::-ms-expand {
+            display: none;
+        }
+        &:focus,
+        &:focus-within {
+            box-shadow: none;
+            outline: 0;
+            border: 2px solid $primary-color-05;
+        }
+        &:invalid { 
+            color: rgba($semantic-color-07, .3); 
+        }
+        &.ng-touched {
+            color: $text-color;
+        }
+    }
+}
+
+.message-wrapper {
+    padding-top: 8px;
+}
+
+.input-group__password {
+    .form-control {
+        // &.ng-valid,
+        // &:valid {
+        //     background-position: 93% -1px;
+        // }
+        &.ng-invalid,
+        &:invalid {
+            background-position: 83% 15px;
+        }
+    }
+}

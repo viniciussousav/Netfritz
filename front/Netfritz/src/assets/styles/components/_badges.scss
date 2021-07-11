@@ -1,0 +1,50 @@
+.badge {
+    padding: 8px 10px;
+    text-transform: uppercase;
+    @include fontSize(9px);
+    letter-spacing: 1px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    border: 1px solid $semantic-color-03;
+    transition: ease .2s all;
+    color: $semantic-color-03;
+    background-color: $semantic-color-05;
+    .badge-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid $semantic-color-03;
+        border-radius: 50%;
+        .mat-icon {
+            width: 14px;
+            height: 14px;
+            @include fontSize(14px);
+        }
+    }
+    span {
+        padding-left: 8px;
+    }
+    &.badge--success {
+        background-color: $color-badge-bg--success;
+        border: 1px solid $color-badge-border--success;
+        color: $success-color;
+        .badge-icon {
+            border: 2px solid $color-badge-border--success;
+            .mat-icon {
+                color: $success-color;
+            }
+        }
+    }
+    &.badge--alert {
+        background-color: lighten($error-color, 30%);
+        border: 1px solid $error-color;
+        color: $error-color;
+        .badge-icon {
+            border: 2px solid $error-color;
+            .mat-icon {
+                color: $error-color;
+            }
+        }
+    }
+}

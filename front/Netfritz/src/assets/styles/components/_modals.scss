@@ -1,0 +1,12 @@
+.mat-dialog-container {
+    background-color: $semantic-color-06 !important;
+    color: $semantic-color !important;
+}
+
+.read-modal {
+    .mat-dialog-container { 
+        padding: 0;
+        background-color: $semantic-color-06 !important;
+        color: $semantic-color !important;
+    }
+}

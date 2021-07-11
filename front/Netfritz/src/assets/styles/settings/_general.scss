@@ -1,0 +1,70 @@
+html,
+body {
+    height: 100vh;
+}
+
+body {
+    font-family: 'Roboto';
+    background: #F5F7FB;
+    overflow: hidden;
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Poppin', "Helvetica Neue", sans-serif;
+    font-weight: 600;
+}
+
+@mixin flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.modal-css .mat-dialog-container {
+    background-color: $semantic-color-06 !important;
+    color: $semantic-color-07 !important;
+    padding: 0;
+}
+
+.mat-select-value,
+.mat-select-arrow {
+    color: $text-color !important;
+}
+.mat-paginator {
+    .mat-paginator-range-actions {
+        width: 100%;
+        justify-content: space-between;
+        @media only screen and (min-width: 767px) {
+            justify-content: flex-end;
+            width: auto;
+        }
+        .mat-paginator-range-label {
+            margin: 0;
+        }
+    }
+}
+
+.filter {
+    .mat-form-field-appearance-fill { 
+        .mat-form-field-flex {
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+.mat-button.mat-primary.mat-button-disabled, .mat-button.mat-accent.mat-button-disabled, .mat-button.mat-warn.mat-button-disabled, .mat-button.mat-button-disabled.mat-button-disabled, .mat-icon-button.mat-primary.mat-button-disabled, .mat-icon-button.mat-accent.mat-button-disabled, .mat-icon-button.mat-warn.mat-button-disabled, .mat-icon-button.mat-button-disabled.mat-button-disabled, .mat-stroked-button.mat-primary.mat-button-disabled, .mat-stroked-button.mat-accent.mat-button-disabled, .mat-stroked-button.mat-warn.mat-button-disabled, .mat-stroked-button.mat-button-disabled.mat-button-disabled {
+    color: rgba(0,0,0,.3);
+}

@@ -1,0 +1,33 @@
+.nav-breadcrumbs {
+    .list-breadcrumbs {
+        display: flex;
+        @include fontSize(14px);
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        margin-top: 20px;
+        list-style-type: none;
+        .list-breadcrumbs__item {
+            margin-right: 4px;
+            .list-breadcrumbs__link {
+                color: $text-secondary-color;
+                &--active {
+                    color: $text-primary-color;
+                }
+            }
+            &::after {
+                content: ">";
+                margin-left: 4px;
+                color: $text-secondary-color;
+            }
+            &:last-child {
+                margin: 0;
+                padding: 0;
+                &::after {
+                    content: " ";
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}
