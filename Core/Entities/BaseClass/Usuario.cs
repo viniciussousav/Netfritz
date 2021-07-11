@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -12,15 +14,19 @@ namespace Netfritz.Core.Entities
             Nome = nome;
             Email = email;
             Senha = senha;
-            DataCriacao = dataCriacao;
+            DataCriacao = DateTime.UtcNow;
         }
 
-        public Guid Id { get; protected set; }
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public string Id { get; protected set; }
 
+        [Required]
         public string Nome { get; protected set; }
 
+        [Required]
         public string Email { get; protected set; }
 
+        [Required]
         public string Senha { get; protected set; }
 
         public DateTime DataCriacao { get; protected set;  }
