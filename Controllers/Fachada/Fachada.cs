@@ -40,16 +40,16 @@ namespace Netfritz.Controllers
 
         // Cliente
     
-        [HttpPost("clientes/cadastrar")]
-        public IActionResult CadastrarCliente([FromBody] ClienteEntity cliente)
-        {
-            return _cadastroController.CadastrarCliente(cliente);
-        }
-
         [HttpGet("clientes/{id}")]
         public IActionResult ObterCliente(string id)
         {
             return _cadastroController.ObterCliente(id);
+        }
+
+        [HttpPost("clientes/cadastrar")]
+        public IActionResult CadastrarCliente([FromBody] ClienteEntity cliente)
+        {
+            return _cadastroController.CadastrarCliente(cliente);
         }
 
         [HttpPut("clientes/{id}/atualizar")]
@@ -74,6 +74,12 @@ namespace Netfritz.Controllers
         public IActionResult RealizarCompra(string id, [FromBody] string fitaId)
         {
             return _compraController.RealizarCompra(id, fitaId);
+        }
+
+        [HttpPut("clientes/{id}/avaliar-compra/{compraId}")]
+        public IActionResult AvaliarCompra(string id, string compraId, [FromBody] AvaliacaoEntity avaliacao)
+        {
+            return _compraController.AvaliarCompra(id, compraId, avaliacao);
         }
 
         // Administrador 
