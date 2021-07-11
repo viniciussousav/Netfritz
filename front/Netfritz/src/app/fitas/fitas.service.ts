@@ -17,7 +17,7 @@ export class FitasService {
     ){}
 
     addFita(fita: any): Observable<any> {
-        const url = environment.backend +'admin/cadastrar-fita/';
+        const url = '/api/admin/cadastrar-fita/';
         return this.http.post<any>(url, fita)
         .pipe(
             catchError(err => {
@@ -30,7 +30,7 @@ export class FitasService {
       }
 
     updateFita(fita: any, idFita: any): Observable<any> {
-      const url = environment.backend +'admin/atualizar-fita'+ "/"+ idFita;
+      const url = '/api/admin/atualizar-fita'+ "/"+ idFita;
       return this.http.post<any>(url, fita)
       .pipe(
           catchError(err => {

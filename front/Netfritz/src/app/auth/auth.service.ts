@@ -17,7 +17,7 @@ export class AuthService {
     ){}
 
     login(email: string, password: string): Observable<any> {
-        const url = environment.backend +'login/';
+        const url = '/api/login/';
         return this.http.post<any>(url, {email, password})
         .pipe(
             catchError(err => {
