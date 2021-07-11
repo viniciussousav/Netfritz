@@ -1,3 +1,4 @@
+import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -14,11 +15,13 @@ export class SigninComponent implements OnInit {
   fieldTextType: boolean;
 
   constructor(
+    private authService: AuthService,
     private fb: FormBuilder,
     private router: Router
   ) { }
 
   ngOnInit(): void {
+    this.initPassForm();
   }
 
 
@@ -34,7 +37,13 @@ export class SigninComponent implements OnInit {
   }
 
   signIn(){
-
+    let user = {
+      'email': this.loginForm.value.email,
+      'password': this.loginForm.value.password,
+    }
+    this.authService.login(user.email, user.password).subscribe( res => {
+      this.router.navigate(['fitas'])
+    })
   }
 
   toggleFieldTextType() {

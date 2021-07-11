@@ -1,3 +1,4 @@
+import { MatPasswordStrengthModule } from '@angular-material-extensions/password-strength';
 import { NgModule } from '@angular/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatBadgeModule } from '@angular/material/badge';
@@ -103,7 +104,8 @@ import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatPasswordStrengthModule
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }]
 })

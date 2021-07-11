@@ -4,6 +4,7 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { UserManagementComponent } from './user-management/user-management.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AdminService } from './admin.service';
 
 
 
@@ -13,6 +14,7 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     AdminRoutingModule,
     SharedModule
-  ]
+  ],
+  providers: [AdminService]
 })
 export class AdminModule { }
