@@ -1,0 +1,138 @@
+@import '../../../assets/styles/components/breadcrumbs';
+@import '../../../assets/styles/components/forms';
+@import '../../../assets/styles/components/buttons';
+@import '../../../assets/styles/settings/variables';
+@import '../../../assets/styles/settings/functions';
+@import "../../../assets/styles/components/forms";
+
+.btn-new {
+    width: 100%;
+    @media only screen and (min-width: 992px) {
+        max-width: 170px;
+    }
+}
+
+.filter-container {
+    @include flex-row();
+    justify-content: space-between;
+}
+
+.filter-bar {
+    @include flex-row();
+    align-items: center;
+    flex: 70%;
+    padding-right: 4px;
+    @media only screen and (min-width: 992px) {
+        flex: 80%;
+        padding-right: 1rem;
+    }
+}
+
+.input-group-text {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.card-table {
+    margin-top: 1rem;
+    @media only screen and (min-width: 767px) {
+        margin-top: 24px;
+    }
+}
+
+.table__wrapper {
+    height: 400px;
+    width: 100%;
+    max-width: 100%;
+    overflow: auto;
+    height: 100%;
+}
+
+.mat-header-cell {
+    border-bottom: 1px solid $footer-border-color;
+}
+
+.pic-name {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 12px;
+    background-color: $primary-color-05;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    color: $semantic-color-06;
+}
+
+.section-filter {
+    margin-top: 24px;
+    @media only screen and (min-width: 767px) {
+        margin-top: 36px;
+    }
+}
+.filter__label {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    @media only screen and (min-width: 767px) {
+        margin-left: 1rem;
+    }
+    .material-icons {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        margin-left: 10px;
+        color: $text-primary-color;
+    }
+    .form-control {
+        background-color: $input-color-02;
+        padding-left: 44px;
+        height: 42px;
+        color: $text-primary-color;
+        width: 100%;
+        border-color: transparent;
+        @include fontSize(14px);
+        font-weight: 400;
+        @media only screen and (min-width: 767px) {
+            max-width: 600px;
+            padding-right: 1rem;
+        }
+        &:focus-within {
+            box-shadow: none;
+            border: 2px solid $primary-color-05;
+        }
+    }
+}
+
+.mat-table {
+    min-width: 250%;
+    @media only screen and (min-width: 767px) {
+        min-width: 100%;
+    }
+    th {
+        color: $title-colors;
+        @include fontSize(14px);
+        font-weight: 700;
+        &.mat-header-cell {
+            &:first-of-type {
+                padding-left: 1rem;
+            }
+        }
+    }
+    td {
+        .material-icons {
+             color: $icon-color-02;
+        }
+        &.mat-cell {
+            &:first-of-type {
+                padding-left: 1rem;
+            }
+        }
+     }
+} 
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: whitesmoke;
+}

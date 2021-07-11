@@ -1,0 +1,149 @@
+@import "../../../assets/styles/components/forms";
+@import "../../../assets/styles/components/messages";
+@import "../../../assets/styles/components/alerts";
+@import "../fitas-management/fitas-management.component.scss";
+
+.modal-wrapper {
+    padding: 0;
+    width: 100%;
+    @media only screen and (min-width: 767px) {
+        width: 580px;
+    }
+}
+
+.modal__form {
+    margin-bottom: 0;
+    .modal__header {
+        padding: 14px 16px 11px 23px;
+        align-items: center;
+        margin-bottom: 24px;
+        .modal__title {
+            @include fontSize(16px);
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+            margin: 0;
+        }
+    }
+    .modal__body {
+        padding: 20px;
+        padding-top: 0;
+    }
+    .form__label {
+        margin-bottom: 8px;
+        @include fontSize(14px);
+        line-height: 20px;
+        text-transform: uppercase;
+        color: $text-color;
+    }
+    .form-control {
+        background-color: $input-color;
+        height: auto;
+        min-height: 46px;
+        @include fontSize(16px);
+        margin-bottom: 0;
+    }
+    .select__wrapper {
+        position: relative;
+        &::after {
+            content: "\25BC";
+            position: absolute;
+            top: 50%;
+            right: 0;
+            padding: 0 1rem;
+            color: $input-select-arrow-color;
+            transform: translateY(-50%);
+            cursor: pointer;
+            pointer-events: none;
+            -webkit-transition: 0.25s all ease;
+            -o-transition: 0.25s all ease;
+            transition: 0.25s all ease;
+            @include fontSize(10px);
+        }
+    }
+}
+
+.modal__footer {
+    padding: 20px 16px;
+    border-top: 2px solid $footer-border-color;
+    justify-content: center;
+    @media only screen and (min-width: 767px) {
+        justify-content: flex-end;
+        padding: 27px 16px;
+    }
+    .mat-button-base {
+        margin: 0;
+        text-transform: uppercase;
+        &.mat-button {
+            background-color: transparent;
+            color: $button-base-color;
+            order: 2;
+            @media only screen and (min-width: 767px) {
+                order: 1;
+            }
+        }
+        &.mat-stroked-button {
+            background: $button-success-color;
+            border: 1px solid $button-border-success-color;
+            @include fontSize(14px);
+            font-weight: 400;
+            order: 1;
+            @media only screen and (min-width: 767px) {
+                order: 2;
+            }
+            &:disabled {
+                background: rgba(71, 184, 129, 0.5);
+                border: 1px solid rgba(71, 184, 129, 0.5);
+            }
+        }
+    }
+}
+
+.modal-message {
+    padding: 42px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .modal-message__icon {
+        @include fontSize(64px);
+        color: $icon-success-color;
+        width: 64px;
+        height: 64px;
+    }
+    .modal-message__title {
+        @include fontSize(20px);
+        font-family: "Poppins", sans-serif;
+        text-align: center;
+        margin-top: 36px;
+        color: $modal-title;
+        font-weight: 600;
+    }
+    .modal-message__text {
+        color: rgba($semantic-color-07, 0.6);
+        width: 100%;
+        max-width: 358px;
+        @include fontSize(16px);
+        text-align: center;
+        line-height: 25px;
+        margin-bottom: 0;
+        margin-top: 16px;
+        strong {
+            font-weight: 600;
+        }
+    }
+    .mat-button-base {
+        color: $button-primary-color;
+        @include fontSize(14px);
+        text-transform: uppercase;
+        margin-top: 25px;
+        &.mat-stroked-button {
+            background-color: $button-primary-color;
+            border: 1px solid $semantic-color-06;
+            @include fontSize(14px);
+            color: $semantic-color-06;
+            margin-top: 36px;
+            max-width: 205px;
+            width: 100%;
+        }
+    }
+}

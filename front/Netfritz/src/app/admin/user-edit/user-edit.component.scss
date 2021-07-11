@@ -1,0 +1,7 @@
+@import './../../home/home.component.scss';
+@import './../../../b2c/denounces/list-denounce/list-denounce.component.scss';
+@import './../../../b2c/denounces/detail-denounce/detail-denounce.component.scss';
+@import './../../../b2c/denounces/modals/local-modal-edit/local-modal-edit.component.scss';
+::ng-deep .form-control {
+    color: black !important;
+}

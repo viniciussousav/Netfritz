@@ -1,0 +1,60 @@
+<div class="denounce-detail-local container">
+  <div class="denounce-detail-data-header">
+    <h6>Editando o usuário</h6>
+    <mat-icon class="click" (click)="onClose()">close</mat-icon>
+  </div>
+  <div class="denounce-detail-local-content">
+    <form
+      [formGroup]="userEditForm"
+      class="local-edit-form"
+      (ngSubmit)="userEdit()"
+    >
+      <div class="denounce-detail-content local">
+        <div>
+          <label class="content-title" for="name">Nome:</label>
+          <input
+            id="name"
+            type="text"
+            class="login-form-input form-control"
+            placeholder="Nome"
+            name="name"
+            formControlName="name"
+          />
+        </div>
+        <div>
+          <label class="content-title" for="email">Email:</label>
+          <input
+            id="email"
+            type="text"
+            class="login-form-input form-control"
+            placeholder="Email"
+            email="email"
+            formControlName="email"
+          />
+        </div>
+        <div>
+          <label class="content-title" for="cartao">Cartao:</label>
+          <input
+            id="cartao"
+            type="text"
+            class="login-form-input form-control"
+            placeholder="Cartão"
+            cartao="cartao"
+            formControlName="cartao"
+          />
+        </div>
+
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      mat-stroked-button
+      type="submit"
+      [disabled]="!userEditForm.valid"
+      (click)="userEdit()"
+    >
+      Salvar
+    </button>
+  </div>
+</div>

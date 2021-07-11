@@ -1,0 +1,62 @@
+<div class="denounce-detail-local modal-wrapper">
+    <div id="step01" *ngIf="!successStep">
+        <form [formGroup]="newFitaForm" class="local-edit-form modal__form" (ngSubmit)="newUser()">
+            <header class="denounce-detail-data-header modal__header">
+                <h2 class="modal__title">Adicionar nova fita</h2>
+                <mat-icon class="click" (click)="onClose()">close</mat-icon>
+            </header>
+            <div class="modal__body">
+                <div class="denounce-detail-content local">
+                    <div class="form-group">
+                        <label class="form__label" for="title">Titulo <span class="text-danger">*</span></label>
+                        <input id="title" type="text" [class.is-invalid]="newFitaForm.get('title').invalid && newFitaForm.get('title').touched" class="login-form-input form-control" required placeholder="Insira o titulo" name="title" formControlName="title">
+                        <div *ngIf="(newFitaForm.get('title').invalid && newFitaForm.get('title').touched) || newFitaForm.get('title').dirty" class="message-wrapper">
+                            <span *ngIf="newFitaForm.get('title').errors?.required" class="text-danger">Titulo
+                                obrigatório.</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form__label" for="description">Descrição <span class="text-danger">*</span></label>
+                        <input id="description"  type="text" [class.is-invalid]="newFitaForm.get('description').invalid && newFitaForm.get('description').touched" required class="login-form-input form-control" placeholder="Insira a descrição" name="description" formControlName="description">
+                        <div *ngIf="(newFitaForm.get('description').invalid && newFitaForm.get('description').touched) || newFitaForm.get('description').dirty" class="message-wrapper">
+                            <span *ngIf="newFitaForm.get('description').errors?.required" class="text-danger">Descrição
+                                obrigatório</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form__label" for="img">Imagem <span class="text-danger">*</span></label>
+                        <input id="img" #file accept='image/*' (change)="preview(file.files)"  type="file" [class.is-invalid]="newFitaForm.get('img').invalid && newFitaForm.get('img').touched" required class="login-form-input form-control" placeholder="Insira a descrição" name="img" formControlName="img">
+                        <div *ngIf="(newFitaForm.get('img').invalid && newFitaForm.get('img').touched) || newFitaForm.get('img').dirty" class="message-wrapper">
+                            <span *ngIf="newFitaForm.get('img').errors?.required" class="text-danger">Imagem
+                                obrigatório</span>
+                            <span class="text-danger" *ngIf="message">{{message}}</span>
+
+                        </div>
+                        <div *ngIf="imgURL">
+                            <img [src]="imgURL" height="150" *ngIf="imgURL">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form__label" for="price">Valor <span class="text-danger">*</span></label>
+                        <input id="price" type="number" [class.is-invalid]="newFitaForm.get('price').invalid && newFitaForm.get('price').touched" required class="login-form-input form-control" placeholder="Insira o preço" name="price" formControlName="price">
+                        <div *ngIf="(newFitaForm.get('price').invalid && newFitaForm.get('price').touched) || newFitaForm.get('price').dirty" class="message-wrapper">
+                            <span *ngIf="newFitaForm.get('price').errors?.required" class="text-danger">Valor
+                                obrigatório</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer modal__footer">
+                <button mat-button (click)="onClose()">Cancelar</button>
+                <button mat-stroked-button type="submit" [disabled]="!newFitaForm.valid">Adicionar usuário</button>
+            </div>
+        </form>
+    </div>
+    <div id="step02" *ngIf="successStep" class="modal-message modal-message--success">
+        <mat-icon aria-hidden="false" aria-label="Check Circle Outline Icon" class="modal-message__icon">
+            check_circle_outline</mat-icon>
+        <h2 class="modal-message__title">Usuário adicionado com sucesso!</h2>
+        <button mat-stroked-button (click)="redirectTo('/admin/user')">Concluído</button>
+        <button mat-button (click)="goToAddUser()">Adicionar outro usuário</button>
+    </div>
+</div>

@@ -1,0 +1,82 @@
+<div class="background-login d-flex align-items-center justify-content-center">
+    <div class="container-fluid">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-sm-8 col-md-11 col-lg-10 col-xl-7 wrapper">
+                <div class="row">
+                    <div class="col-md-12 login order-2 order-md-1">
+                        <header class="header">
+                            <a routerLink="" href="#" class="header-item">
+                                <span class="material-icons">
+                                    keyboard_backspace
+                                </span>
+                                Voltar
+                            </a>
+                            <p class="header-link-back">Já tem conta? <a [routerLink]="['../']">Faça login</a></p>
+                        </header>
+                        <h1 class="login-title">Crie sua Conta</h1>
+                        <p class="login-subtitle">Preencha os campos abaixo para ter acesso ao dashboard </p>
+                        <form [formGroup]="registrationForm" class="login-form" (ngSubmit)="signUp()">
+                            <div class="login-form-item form-group">
+                                <label class="login-form__label" for="email">Qual é o seu email?</label>
+                                <input id="email" type="email" [class.is-invalid]="registrationForm.get('email').invalid && registrationForm.get('email').touched" class="login-form-input form-control" class="login-form-input form-control" placeholder="Insira seu email" required formControlName="email">
+                                <div *ngIf="(registrationForm.get('email').invalid && registrationForm.get('email').touched) || registrationForm.get('email').dirty" class="message-wrapper">
+                                    <span *ngIf="registrationForm.get('email').errors?.required" class="text-danger">Email obrigatório</span>
+                                    <span *ngIf="registrationForm.get('email').errors?.email" class="text-danger">Email deve ser um email válido.</span>
+                                    <span *ngIf="registrationForm.get('email').errors?.uniqueEmail" class="text-danger">Email deve ser único.</span>
+                                </div>
+                            </div>
+                            <div class="login-form-item form-group">
+                                <label class="login-form__label" for="email-confirm">Confirme seu email</label>
+                                <input id="email-confirm" [class.is-invalid]="registrationForm.get('confirmEmail').invalid && registrationForm.get('confirmEmail').touched" type="email" class="login-form-input form-control" placeholder="Insira seu email" name="email" ngModel required formControlName="confirmEmail">
+                                <div *ngIf="(registrationForm.get('confirmEmail').invalid && registrationForm.get('confirmEmail').touched) || registrationForm.get('confirmEmail').dirty" class="message-wrapper">
+                                    <span *ngIf="registrationForm.get('confirmEmail').errors?.required" class="text-danger">Email é obrigatório</span>
+                                    <span *ngIf="registrationForm.get('confirmEmail').errors?.email" class="text-danger">Email deve ser um email válido.</span>
+                                    <span *ngIf="registrationForm.get('confirmEmail').errors?.uniqueEmail" class="text-danger">Email deve ser único.</span>
+                                    <span *ngIf="registrationForm.get('confirmEmail').errors?.mustMatch" class="text-danger">Confirme corretamente seu email.</span>
+                                </div>
+                            </div>
+                            <div class="login-form-item form-group">
+                                <label class="login-form__label" for="cartao">Qual é o seu cartão?</label>
+                                <input id="cartao" type="cartao" [class.is-invalid]="registrationForm.get('cartao').invalid && registrationForm.get('cartao').touched" class="login-form-input form-control" class="login-form-input form-control" placeholder="Insira seu cartão" required formControlName="cartao">
+                                <div *ngIf="(registrationForm.get('cartao').invalid && registrationForm.get('cartao').touched) || registrationForm.get('cartao').dirty" class="message-wrapper">
+                                    <span *ngIf="registrationForm.get('cartao').errors?.required" class="text-danger">Cartão obrigatório</span>
+                                    <span *ngIf="registrationForm.get('cartao').errors?.cartao" class="text-danger">Deve ser um cartão válido.</span>
+                                </div>
+                            </div>
+                            <div class="login-form-item form-group">
+                                <label class="login-form__label" for="password">Sua senha</label>
+                                <div class="input-group input-group__password">
+                                    <input #password [type]="fieldTextType ? 'text' : 'password'" id="password" type="password" class="login-form-input form-control" placeholder="Insira sua senha" name="password" ngModel required formControlName="password">
+                                    <button type="button" class="btn-icon" (click)="toggleFieldTextType()">
+                                        <span class="material-icons">{{changeIcon()}}</span>
+                                    </button>
+                                </div>
+                                <div *ngIf="(registrationForm.get('password').invalid && registrationForm.get('password').touched) || registrationForm.get('password').dirty" class="message-wrapper">
+                                    <span *ngIf="registrationForm.get('password').errors?.required" class="text-danger">Digita a Senha, é obrigatório.</span>
+                                </div>
+                                <p class="login-form__text small">Nivel de Segurança da senha:</p>
+                                <mat-password-strength [password]="password.value"> </mat-password-strength>
+                            </div>
+                            <div class="login-form-item form-group">
+                                <label class="login-form__label" for="password2">Sua senha novamente</label>
+                                <div class="input-group input-group__password">
+                                    <input #password [type]="fieldTextTypeConfirm ? 'text' : 'password'" id="password2" type="password" class="login-form-input form-control" [class.is-invalid]="registrationForm.get('confirmPassword').invalid && registrationForm.get('confirmPassword').touched" placeholder="Insira sua senha novamente" name="password2" ngModel required formControlName="confirmPassword">
+                                    <button type="button" class="btn-icon" (click)="toggleFieldTextTypeConfirm()">
+                                        <span class="material-icons">{{changeIconConfirm()}}</span>
+                                    </button>
+                                </div>
+                                <div *ngIf="(registrationForm.get('confirmPassword').invalid && registrationForm.get('confirmPassword').touched) || registrationForm.get('confirmPassword').dirty" class="message-wrapper">
+                                    <span *ngIf="registrationForm.get('confirmPassword').errors?.required" class="text-danger">Digita a Senha Novamente é obrigatório.</span>
+                                    <span *ngIf="registrationForm.get('confirmPassword').errors?.mustMatch" class="text-danger">Senha não confere.</span>
+                                </div>
+                            </div>
+                            <div class="login-button-container">
+                                <button type="submit" [disabled]="!registrationForm.valid" class="btn btn-info">Criar Conta</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
