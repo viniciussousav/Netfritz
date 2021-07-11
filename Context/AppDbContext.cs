@@ -11,6 +11,8 @@ namespace Netfritz.Context
     {
         public AppDbContext(DbContextOptions<AppDbContext> options): base(options) { }
 
+        public DbSet<Usuario> Usuarios { get; set; }
+
         public DbSet<ClienteEntity> Clientes { get; set; }
 
         public DbSet<AdministradorEntity> Administradores { get; set; }

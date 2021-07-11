@@ -22,11 +22,11 @@ namespace Netfritz.Core.Repositories
          * Login
          */
 
-        public string? Login(string email, string senha)
+        public Usuario Login(string email, string senha)
         {
-            return _context.Clientes
+            return _context.Usuarios
                 .AsNoTracking()
-                .FirstOrDefault(c => c.Email == email && c.Senha == senha)?.Id;
+                .FirstOrDefault(c => c.Email == email && c.Senha == senha);
         }
 
         /*
@@ -68,6 +68,11 @@ namespace Netfritz.Core.Repositories
         /*
          * Administrador
          */
+
+        public List<AdministradorEntity> GetAdministradores()
+        {
+            return _context.Administradores.ToList();
+        }
 
         public AdministradorEntity GetAdministrador(string id)
         {

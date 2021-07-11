@@ -9,10 +9,10 @@ namespace Netfritz.Core.Entities
 {
     public class CompraEntity
     {
-        public CompraEntity(string clienteId, string fitaId)
+        public CompraEntity(string clienteEntityId, string fitaEntityId)
         {
-            ClienteEntityId = clienteId;
-            FitaEntityId = fitaId;
+            ClienteEntityId = clienteEntityId;
+            FitaEntityId = fitaEntityId;
             DataCompra = DateTime.UtcNow;
         }
 
