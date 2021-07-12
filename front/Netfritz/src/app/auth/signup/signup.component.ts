@@ -44,7 +44,7 @@ export class SignupComponent implements OnInit {
     let user = {
       'email': this.registrationForm.value.email,
       'cartao': this.registrationForm.value.cartao,
-      'password': this.registrationForm.value.password,
+      'senha': this.registrationForm.value.password,
     }
     this.authService.addClient(user).subscribe( res => {
       this.router.navigate([''])

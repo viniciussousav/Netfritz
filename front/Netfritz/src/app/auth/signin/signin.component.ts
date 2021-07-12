@@ -39,9 +39,9 @@ export class SigninComponent implements OnInit {
   signIn(){
     let user = {
       'email': this.loginForm.value.email,
-      'password': this.loginForm.value.password,
+      'senha': this.loginForm.value.password,
     }
-    this.authService.login(user.email, user.password).subscribe( res => {
+    this.authService.login(user.email, user.senha).subscribe( res => {
       this.router.navigate(['fitas'])
     })
   }
