@@ -43,7 +43,7 @@ export class FitasService {
       }
 
     getFitas(title?: any): Observable<any> {
-      const url = environment.backend +"fitas/";
+      const url = "/api/fitas/";
       return this.http.get<any>(url)
       .pipe(
           catchError(err => {

@@ -31,7 +31,7 @@ export class AuthService {
 
 
     addClient(cliente: any): Observable<any> {
-      const url = environment.backend +'cliente/cadastrar';
+      const url = '/api/cliente/cadastrar';
       return this.http.post<any>(url, cliente)
       .pipe(
           catchError(err => {
