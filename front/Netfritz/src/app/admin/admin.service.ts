@@ -17,7 +17,7 @@ export class AdminService {
     ){}
 
     addAdmin(admin: any): Observable<any> {
-        const url = '/api/admin/cadastrar-admin/';
+        const url = environment.backend+'/admin/cadastrar-admin/';
         return this.http.post<any>(url, admin)
         .pipe(
             catchError(err => {
@@ -30,7 +30,7 @@ export class AdminService {
       }
 
     getAdmin(fita: any, idAdmin: any): Observable<any> {
-      const url = "/api/admin/" + idAdmin;
+      const url = environment.backend+"/admin/" + idAdmin;
       return this.http.post<any>(url, fita)
       .pipe(
           catchError(err => {

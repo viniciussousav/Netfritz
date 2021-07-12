@@ -17,7 +17,7 @@ export class AuthService {
     ){}
 
     login(email: string, password: string): Observable<any> {
-        const url = '/api/login/';
+        const url = environment.backend+'/login/';
         return this.http.post<any>(url, {email, password})
         .pipe(
             catchError(err => {
@@ -31,7 +31,7 @@ export class AuthService {
 
 
     addClient(cliente: any): Observable<any> {
-      const url = '/api/cliente/cadastrar';
+      const url = environment.backend+'/cliente/cadastrar';
       return this.http.post<any>(url, cliente)
       .pipe(
           catchError(err => {

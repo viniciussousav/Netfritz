@@ -30,7 +30,7 @@ export class FitasService {
       }
 
     updateFita(fita: any, idFita: any): Observable<any> {
-      const url = '/api/admin/atualizar-fita'+ "/"+ idFita;
+      const url = environment.backend+'/admin/atualizar-fita/'+ idFita;
       return this.http.post<any>(url, fita)
       .pipe(
           catchError(err => {
@@ -43,7 +43,7 @@ export class FitasService {
       }
 
     getFitas(title?: any): Observable<any> {
-      const url = "/api/fitas/";
+      const url = environment.backend+"/fitas/";
       return this.http.get<any>(url)
       .pipe(
           catchError(err => {
