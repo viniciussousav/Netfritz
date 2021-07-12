@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\GitFolders\\Netfritz\\Netfritz\\Netfritz.csproj": {}
+    "/home/viniciussousav/Documents/CIn/2020.2/Netfritz/back/Netfritz.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\GitFolders\\Netfritz\\Netfritz\\Netfritz.csproj": {
+    "/home/viniciussousav/Documents/CIn/2020.2/Netfritz/back/Netfritz.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\GitFolders\\Netfritz\\Netfritz\\Netfritz.csproj",
+        "projectUniqueName": "/home/viniciussousav/Documents/CIn/2020.2/Netfritz/back/Netfritz.csproj",
         "projectName": "Netfritz",
-        "projectPath": "C:\\Users\\User\\Desktop\\GitFolders\\Netfritz\\Netfritz\\Netfritz.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\GitFolders\\Netfritz\\Netfritz\\obj\\",
+        "projectPath": "/home/viniciussousav/Documents/CIn/2020.2/Netfritz/back/Netfritz.csproj",
+        "packagesPath": "/home/viniciussousav/.nuget/packages/",
+        "outputPath": "/home/viniciussousav/Documents/CIn/2020.2/Netfritz/back/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/viniciussousav/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -99,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.301/RuntimeIdentifierGraph.json"
         }
       }
     }

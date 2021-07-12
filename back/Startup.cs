@@ -25,6 +25,8 @@ namespace Netfritz
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddCors();
+            
             services.AddControllers()
                 .AddNewtonsoftJson();
 
@@ -46,6 +48,12 @@ namespace Netfritz
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors(x => x
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true) // allow any origin
+                .AllowCredentials()); // allow credentials
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

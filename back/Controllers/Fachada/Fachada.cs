@@ -46,7 +46,7 @@ namespace Netfritz.Controllers
             return _cadastroController.ObterCliente(id);
         }
 
-        [HttpPost("clientes/cadastrar")]
+        [HttpPost("cliente/cadastrar")]
         public IActionResult CadastrarCliente([FromBody] ClienteEntity cliente)
         {
             return _cadastroController.CadastrarCliente(cliente);
