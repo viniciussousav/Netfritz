@@ -31,6 +31,8 @@ namespace Netfritz.Core.Entities
 
         [Required]
         public int Ano { get; private set; }
-
+        
+        public string imagemUrl { get;  set; }
+        
     }
 }

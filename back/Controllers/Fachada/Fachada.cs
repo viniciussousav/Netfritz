@@ -8,6 +8,7 @@ using Netfritz.Core.Repositories.Fitas;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace Netfritz.Controllers
 {
@@ -20,14 +21,15 @@ namespace Netfritz.Controllers
         private readonly CadastroController _cadastroController;
         private readonly FitaController _fitaController;
         private readonly CompraController _compraController;
+        private readonly S3StorageController _s3StorageController;
         
         public Fachada(IUsuarioRepository usuarioRepository, IFitaRepository fitaRepository, ICompraRepository compraRepository)
         {
             _authController = new AuthController(usuarioRepository);
-
             _cadastroController = new CadastroController(usuarioRepository);
             _fitaController = new FitaController(fitaRepository, usuarioRepository);
             _compraController = new CompraController(compraRepository, usuarioRepository);
+            _s3StorageController = new S3StorageController(fitaRepository);
         }
 
         // Login
@@ -132,6 +134,12 @@ namespace Netfritz.Controllers
         public IActionResult PesquisarFita(string id)
         {
             return _fitaController.ObterFita(id);
+        }
+
+        [HttpPut("fitas/{id}/upload-imagem")]
+        public async Task<IActionResult> UploadFitas(string id, [FromForm] IFormFile imagem)
+        {
+            return await _s3StorageController.UploadImagem(id, imagem);
         }
     }
 }
