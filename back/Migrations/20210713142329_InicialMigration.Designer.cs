@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Netfritz.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210711174418_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20210713142329_InicialMigration")]
+    partial class InicialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -40,8 +40,7 @@ namespace Netfritz.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ClienteEntityId")
-                        .IsUnique();
+                    b.HasIndex("ClienteEntityId");
 
                     b.HasIndex("FitaEntityId");
 
@@ -67,6 +66,9 @@ namespace Netfritz.Migrations
 
                     b.Property<decimal>("Valor")
                         .HasColumnType("numeric");
+
+                    b.Property<string>("imagemUrl")
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -129,8 +131,8 @@ namespace Netfritz.Migrations
             modelBuilder.Entity("Netfritz.Core.Entities.CompraEntity", b =>
                 {
                     b.HasOne("Netfritz.Core.Entities.ClienteEntity", "ClienteEntitiy")
-                        .WithOne("Compra")
-                        .HasForeignKey("Netfritz.Core.Entities.CompraEntity", "ClienteEntityId")
+                        .WithMany()
+                        .HasForeignKey("ClienteEntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -164,11 +166,6 @@ namespace Netfritz.Migrations
                     b.Navigation("ClienteEntitiy");
 
                     b.Navigation("FitaEntity");
-                });
-
-            modelBuilder.Entity("Netfritz.Core.Entities.ClienteEntity", b =>
-                {
-                    b.Navigation("Compra");
                 });
 #pragma warning restore 612, 618
         }

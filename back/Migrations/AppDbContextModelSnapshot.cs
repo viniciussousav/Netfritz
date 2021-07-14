@@ -38,8 +38,7 @@ namespace Netfritz.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ClienteEntityId")
-                        .IsUnique();
+                    b.HasIndex("ClienteEntityId");
 
                     b.HasIndex("FitaEntityId");
 
@@ -65,6 +64,9 @@ namespace Netfritz.Migrations
 
                     b.Property<decimal>("Valor")
                         .HasColumnType("numeric");
+
+                    b.Property<string>("imagemUrl")
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -127,8 +129,8 @@ namespace Netfritz.Migrations
             modelBuilder.Entity("Netfritz.Core.Entities.CompraEntity", b =>
                 {
                     b.HasOne("Netfritz.Core.Entities.ClienteEntity", "ClienteEntitiy")
-                        .WithOne("Compra")
-                        .HasForeignKey("Netfritz.Core.Entities.CompraEntity", "ClienteEntityId")
+                        .WithMany()
+                        .HasForeignKey("ClienteEntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -162,11 +164,6 @@ namespace Netfritz.Migrations
                     b.Navigation("ClienteEntitiy");
 
                     b.Navigation("FitaEntity");
-                });
-
-            modelBuilder.Entity("Netfritz.Core.Entities.ClienteEntity", b =>
-                {
-                    b.Navigation("Compra");
                 });
 #pragma warning restore 612, 618
         }

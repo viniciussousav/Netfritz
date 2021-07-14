@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Netfritz.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class InicialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,7 +15,8 @@ namespace Netfritz.Migrations
                     Titulo = table.Column<string>(type: "text", nullable: false),
                     Descricao = table.Column<string>(type: "text", nullable: false),
                     Valor = table.Column<decimal>(type: "numeric", nullable: false),
-                    Ano = table.Column<int>(type: "integer", nullable: false)
+                    Ano = table.Column<int>(type: "integer", nullable: false),
+                    imagemUrl = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -71,8 +72,7 @@ namespace Netfritz.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Compras_ClienteEntityId",
                 table: "Compras",
-                column: "ClienteEntityId",
-                unique: true);
+                column: "ClienteEntityId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Compras_FitaEntityId",
