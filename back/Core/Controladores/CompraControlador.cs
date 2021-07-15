@@ -8,12 +8,12 @@ using System.Linq;
 
 namespace Netfritz.Controllers
 {
-    public class CompraController
+    public class CompraControlador
     {
         private readonly ICompraRepository _compraRepository;
         private readonly IUsuarioRepository _usuarioRepository;
 
-        public CompraController(ICompraRepository compraRepository, IUsuarioRepository usuarioRepository)
+        public CompraControlador(ICompraRepository compraRepository, IUsuarioRepository usuarioRepository)
         {
             _compraRepository = compraRepository;
             _usuarioRepository = usuarioRepository;

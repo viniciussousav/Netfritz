@@ -8,12 +8,12 @@ using System.Linq;
 
 namespace Netfritz.Controllers
 {
-    public class FitaController
+    public class FitaControlador
     {
         private readonly IFitaRepository _fitaRepository;
         private readonly IUsuarioRepository _usuarioRepository;
 
-        public FitaController(IFitaRepository fitaRepository, IUsuarioRepository usuarioRepository)
+        public FitaControlador(IFitaRepository fitaRepository, IUsuarioRepository usuarioRepository)
         {
             _fitaRepository = fitaRepository;
             _usuarioRepository = usuarioRepository;

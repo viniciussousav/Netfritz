@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace Netfritz.Controllers
 {
-    public class AuthController
+    public class AuthControlador
     {
         private readonly IUsuarioRepository _usuarioRepository;
 
-        public AuthController(IUsuarioRepository usuarioRepository)
+        public AuthControlador(IUsuarioRepository usuarioRepository)
         {
             _usuarioRepository = usuarioRepository;
         }

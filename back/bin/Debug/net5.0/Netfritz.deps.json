@@ -33,6 +33,9 @@
     ".NETCoreApp,Version=v5.0": {
       "Netfritz/1.0.0": {
         "dependencies": {
+          "AWSSDK.S3": "3.7.1.13",
+          "Amazon.CDK.AWS.S3": "1.113.0",
+          "Amazon.S3": "0.21.5",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "5.0.7",
           "Microsoft.EntityFrameworkCore": "5.0.7",
           "Microsoft.EntityFrameworkCore.Design": "5.0.7",
@@ -123,9 +126,9 @@
           "Microsoft.Extensions.Caching.Abstractions.Reference": "5.0.0.0",
           "Microsoft.Extensions.Caching.Memory.Reference": "5.0.0.0",
           "Microsoft.Extensions.Configuration.Abstractions.Reference": "5.0.0.0",
-          "Microsoft.Extensions.Configuration.Binder": "5.0.0.0",
+          "Microsoft.Extensions.Configuration.Binder.Reference": "5.0.0.0",
           "Microsoft.Extensions.Configuration.CommandLine": "5.0.0.0",
-          "Microsoft.Extensions.Configuration": "5.0.0.0",
+          "Microsoft.Extensions.Configuration.Reference": "5.0.0.0",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "5.0.0.0",
           "Microsoft.Extensions.Configuration.FileExtensions": "5.0.0.0",
           "Microsoft.Extensions.Configuration.Ini": "5.0.0.0",
@@ -149,15 +152,15 @@
           "Microsoft.Extensions.Localization.Abstractions": "5.0.0.0",
           "Microsoft.Extensions.Localization": "5.0.0.0",
           "Microsoft.Extensions.Logging.Abstractions.Reference": "5.0.0.0",
-          "Microsoft.Extensions.Logging.Configuration": "5.0.0.0",
-          "Microsoft.Extensions.Logging.Console": "5.0.0.0",
+          "Microsoft.Extensions.Logging.Configuration.Reference": "5.0.0.0",
+          "Microsoft.Extensions.Logging.Console.Reference": "5.0.0.0",
           "Microsoft.Extensions.Logging.Debug": "5.0.0.0",
           "Microsoft.Extensions.Logging.Reference": "5.0.0.0",
           "Microsoft.Extensions.Logging.EventLog": "5.0.0.0",
           "Microsoft.Extensions.Logging.EventSource": "5.0.0.0",
           "Microsoft.Extensions.Logging.TraceSource": "5.0.0.0",
           "Microsoft.Extensions.ObjectPool": "5.0.0.0",
-          "Microsoft.Extensions.Options.ConfigurationExtensions": "5.0.0.0",
+          "Microsoft.Extensions.Options.ConfigurationExtensions.Reference": "5.0.0.0",
           "Microsoft.Extensions.Options.DataAnnotations": "5.0.0.0",
           "Microsoft.Extensions.Options.Reference": "5.0.0.0",
           "Microsoft.Extensions.Primitives.Reference": "5.0.0.0",
@@ -331,6 +334,232 @@
           "Netfritz.dll": {}
         }
       },
+      "Amazon.CDK/1.113.0": {
+        "dependencies": {
+          "Amazon.CDK.CXAPI": "1.113.0",
+          "Amazon.CDK.CloudAssembly.Schema": "1.113.0",
+          "Amazon.CDK.RegionInfo": "1.113.0",
+          "Amazon.JSII.Runtime": "1.30.0",
+          "Constructs": "3.3.69"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Amazon.CDK.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Amazon.CDK.dll": {}
+        }
+      },
+      "Amazon.CDK.AWS.Events/1.113.0": {
+        "dependencies": {
+          "Amazon.CDK": "1.113.0",
+          "Amazon.CDK.AWS.IAM": "1.113.0",
+          "Amazon.JSII.Runtime": "1.30.0",
+          "Constructs": "3.3.69"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Amazon.CDK.AWS.Events.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Amazon.CDK.AWS.Events.dll": {}
+        }
+      },
+      "Amazon.CDK.AWS.IAM/1.113.0": {
+        "dependencies": {
+          "Amazon.CDK": "1.113.0",
+          "Amazon.CDK.RegionInfo": "1.113.0",
+          "Amazon.JSII.Runtime": "1.30.0",
+          "Constructs": "3.3.69"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Amazon.CDK.AWS.IAM.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Amazon.CDK.AWS.IAM.dll": {}
+        }
+      },
+      "Amazon.CDK.AWS.KMS/1.113.0": {
+        "dependencies": {
+          "Amazon.CDK": "1.113.0",
+          "Amazon.CDK.AWS.IAM": "1.113.0",
+          "Amazon.CDK.CXAPI": "1.113.0",
+          "Amazon.JSII.Runtime": "1.30.0",
+          "Constructs": "3.3.69"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Amazon.CDK.AWS.KMS.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Amazon.CDK.AWS.KMS.dll": {}
+        }
+      },
+      "Amazon.CDK.AWS.S3/1.113.0": {
+        "dependencies": {
+          "Amazon.CDK": "1.113.0",
+          "Amazon.CDK.AWS.Events": "1.113.0",
+          "Amazon.CDK.AWS.IAM": "1.113.0",
+          "Amazon.CDK.AWS.KMS": "1.113.0",
+          "Amazon.CDK.CXAPI": "1.113.0",
+          "Amazon.JSII.Runtime": "1.30.0",
+          "Constructs": "3.3.69"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Amazon.CDK.AWS.S3.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Amazon.CDK.AWS.S3.dll": {}
+        }
+      },
+      "Amazon.CDK.CloudAssembly.Schema/1.113.0": {
+        "dependencies": {
+          "Amazon.JSII.Runtime": "1.30.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Amazon.CDK.CloudAssembly.Schema.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Amazon.CDK.CloudAssembly.Schema.dll": {}
+        }
+      },
+      "Amazon.CDK.CXAPI/1.113.0": {
+        "dependencies": {
+          "Amazon.CDK.CloudAssembly.Schema": "1.113.0",
+          "Amazon.JSII.Runtime": "1.30.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Amazon.CDK.CXAPI.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Amazon.CDK.CXAPI.dll": {}
+        }
+      },
+      "Amazon.CDK.RegionInfo/1.113.0": {
+        "dependencies": {
+          "Amazon.JSII.Runtime": "1.30.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Amazon.CDK.RegionInfo.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Amazon.CDK.RegionInfo.dll": {}
+        }
+      },
+      "Amazon.Core/0.21.4": {
+        "runtime": {
+          "lib/net5.0/Amazon.Core.dll": {
+            "assemblyVersion": "0.21.4.0",
+            "fileVersion": "0.21.4.0"
+          }
+        },
+        "compile": {
+          "lib/net5.0/Amazon.Core.dll": {}
+        }
+      },
+      "Amazon.JSII.Runtime/1.30.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": "5.0.1",
+          "Microsoft.Extensions.Logging": "5.0.0",
+          "Microsoft.Extensions.Logging.Console": "5.0.0",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Amazon.JSII.Runtime.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Amazon.JSII.Runtime.dll": {}
+        }
+      },
+      "Amazon.S3/0.21.5": {
+        "dependencies": {
+          "Amazon.Core": "0.21.4",
+          "Carbon.Storage": "3.4.0"
+        },
+        "runtime": {
+          "lib/net5.0/Amazon.S3.dll": {
+            "assemblyVersion": "0.21.5.0",
+            "fileVersion": "0.21.5.0"
+          }
+        },
+        "compile": {
+          "lib/net5.0/Amazon.S3.dll": {}
+        }
+      },
+      "AWSSDK.Core/3.7.0.43": {
+        "runtime": {
+          "lib/netcoreapp3.1/AWSSDK.Core.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.0.43"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/AWSSDK.Core.dll": {}
+        }
+      },
+      "AWSSDK.S3/3.7.1.13": {
+        "dependencies": {
+          "AWSSDK.Core": "3.7.0.43"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/AWSSDK.S3.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.1.13"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/AWSSDK.S3.dll": {}
+        }
+      },
+      "Carbon.Storage/3.4.0": {
+        "runtime": {
+          "lib/net5.0/Carbon.Storage.dll": {
+            "assemblyVersion": "3.4.0.0",
+            "fileVersion": "3.4.0.0"
+          }
+        },
+        "compile": {
+          "lib/net5.0/Carbon.Storage.dll": {}
+        }
+      },
+      "Constructs/3.3.69": {
+        "dependencies": {
+          "Amazon.JSII.Runtime": "1.30.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Constructs.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Constructs.dll": {}
+        }
+      },
       "Humanizer.Core/2.8.26": {
         "runtime": {
           "lib/netstandard2.0/Humanizer.dll": {
@@ -342,7 +571,7 @@
       "Microsoft.AspNetCore.JsonPatch/5.0.7": {
         "dependencies": {
           "Microsoft.CSharp": "4.7.0",
-          "Newtonsoft.Json": "12.0.2"
+          "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.AspNetCore.JsonPatch.dll": {
@@ -357,7 +586,7 @@
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson/5.0.7": {
         "dependencies": {
           "Microsoft.AspNetCore.JsonPatch": "5.0.7",
-          "Newtonsoft.Json": "12.0.2",
+          "Newtonsoft.Json": "13.0.1",
           "Newtonsoft.Json.Bson": "1.0.2"
         },
         "runtime": {
@@ -452,9 +681,20 @@
           "Microsoft.Extensions.Primitives": "5.0.0"
         }
       },
+      "Microsoft.Extensions.Configuration/5.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Primitives": "5.0.0"
+        }
+      },
       "Microsoft.Extensions.Configuration.Abstractions/5.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "5.0.0"
+        }
+      },
+      "Microsoft.Extensions.Configuration.Binder/5.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "5.0.0"
         }
       },
       "Microsoft.Extensions.DependencyInjection/5.0.1": {
@@ -481,9 +721,41 @@
         }
       },
       "Microsoft.Extensions.Logging.Abstractions/5.0.0": {},
+      "Microsoft.Extensions.Logging.Configuration/5.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "5.0.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Configuration.Binder": "5.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Logging": "5.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Options": "5.0.0",
+          "Microsoft.Extensions.Options.ConfigurationExtensions": "5.0.0"
+        }
+      },
+      "Microsoft.Extensions.Logging.Console/5.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "5.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Logging": "5.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Logging.Configuration": "5.0.0",
+          "Microsoft.Extensions.Options": "5.0.0",
+          "Microsoft.Extensions.Options.ConfigurationExtensions": "5.0.0"
+        }
+      },
       "Microsoft.Extensions.Options/5.0.0": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Primitives": "5.0.0"
+        }
+      },
+      "Microsoft.Extensions.Options.ConfigurationExtensions/5.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Configuration.Binder": "5.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Options": "5.0.0",
           "Microsoft.Extensions.Primitives": "5.0.0"
         }
       },
@@ -499,11 +771,11 @@
           "lib/netstandard2.0/Microsoft.OpenApi.dll": {}
         }
       },
-      "Newtonsoft.Json/12.0.2": {
+      "Newtonsoft.Json/13.0.1": {
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
-            "assemblyVersion": "12.0.0.0",
-            "fileVersion": "12.0.2.23222"
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.1.25517"
           }
         },
         "compile": {
@@ -512,7 +784,7 @@
       },
       "Newtonsoft.Json.Bson/1.0.2": {
         "dependencies": {
-          "Newtonsoft.Json": "12.0.2"
+          "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.Bson.dll": {
@@ -602,16 +874,8 @@
           "lib/net5.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {}
         }
       },
-      "System.Collections.Immutable/5.0.0": {
-        "compile": {
-          "lib/netstandard2.0/System.Collections.Immutable.dll": {}
-        }
-      },
-      "System.ComponentModel.Annotations/5.0.0": {
-        "compile": {
-          "ref/netstandard2.1/System.ComponentModel.Annotations.dll": {}
-        }
-      },
+      "System.Collections.Immutable/5.0.0": {},
+      "System.ComponentModel.Annotations/5.0.0": {},
       "System.Diagnostics.DiagnosticSource/5.0.1": {
         "runtime": {
           "lib/net5.0/System.Diagnostics.DiagnosticSource.dll": {
@@ -1110,7 +1374,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.Extensions.Configuration.Binder/5.0.0.0": {
+      "Microsoft.Extensions.Configuration.Binder.Reference/5.0.0.0": {
         "compile": {
           "Microsoft.Extensions.Configuration.Binder.dll": {}
         },
@@ -1122,7 +1386,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.Extensions.Configuration/5.0.0.0": {
+      "Microsoft.Extensions.Configuration.Reference/5.0.0.0": {
         "compile": {
           "Microsoft.Extensions.Configuration.dll": {}
         },
@@ -1266,13 +1530,13 @@
         },
         "compileOnly": true
       },
-      "Microsoft.Extensions.Logging.Configuration/5.0.0.0": {
+      "Microsoft.Extensions.Logging.Configuration.Reference/5.0.0.0": {
         "compile": {
           "Microsoft.Extensions.Logging.Configuration.dll": {}
         },
         "compileOnly": true
       },
-      "Microsoft.Extensions.Logging.Console/5.0.0.0": {
+      "Microsoft.Extensions.Logging.Console.Reference/5.0.0.0": {
         "compile": {
           "Microsoft.Extensions.Logging.Console.dll": {}
         },
@@ -1314,7 +1578,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.Extensions.Options.ConfigurationExtensions/5.0.0.0": {
+      "Microsoft.Extensions.Options.ConfigurationExtensions.Reference/5.0.0.0": {
         "compile": {
           "Microsoft.Extensions.Options.ConfigurationExtensions.dll": {}
         },
@@ -2318,6 +2582,111 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Amazon.CDK/1.113.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pGZLMxGdCWrpMEH9Cmy0F64fDtzDlpjwXr2ffjIQ8prtvMyoRZvdndLzj4ItWz3bNr8CXOCnHH8pVRjlLVSw+Q==",
+      "path": "amazon.cdk/1.113.0",
+      "hashPath": "amazon.cdk.1.113.0.nupkg.sha512"
+    },
+    "Amazon.CDK.AWS.Events/1.113.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XIASOtuRKB2Uw2HZnICabVOE9X0cgYar9t+rvkmWXWKVocdIaOwOo5VkbFNfyXaPoqfvfDEd8xFiCV6jswv1vQ==",
+      "path": "amazon.cdk.aws.events/1.113.0",
+      "hashPath": "amazon.cdk.aws.events.1.113.0.nupkg.sha512"
+    },
+    "Amazon.CDK.AWS.IAM/1.113.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fbpn1H/kpPt3HTVhziqSS4GjyYYgK3tgWtgvbtGhiNkIHWhsjPGJQ1vc4Y30qz+3VdWfmYo8TDX7tqC6Ayu7VQ==",
+      "path": "amazon.cdk.aws.iam/1.113.0",
+      "hashPath": "amazon.cdk.aws.iam.1.113.0.nupkg.sha512"
+    },
+    "Amazon.CDK.AWS.KMS/1.113.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/pnJlclXmnUQfPFYE/oZPgQx7P30k+0X7XK6CCHevQJj39H9YMM8lgK2DnBF3dM4x5+aHTP3jOa+UmilARHIbg==",
+      "path": "amazon.cdk.aws.kms/1.113.0",
+      "hashPath": "amazon.cdk.aws.kms.1.113.0.nupkg.sha512"
+    },
+    "Amazon.CDK.AWS.S3/1.113.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qhI0w8syveRz4aJp8bcw0HNcVpC1f2db30sw2tYfeZxSSA/hh8Vh4dkTJb7W8Q26lf9Pgy1unbcVuuhE/NS3FA==",
+      "path": "amazon.cdk.aws.s3/1.113.0",
+      "hashPath": "amazon.cdk.aws.s3.1.113.0.nupkg.sha512"
+    },
+    "Amazon.CDK.CloudAssembly.Schema/1.113.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pricJpaAw3j5GVmFlNuBpuJQRKNoAWoMpatfviFfT6p7WMLiKAhatMs6kQCphY+YYQrX2fuu9KgUAFGpOJwwlQ==",
+      "path": "amazon.cdk.cloudassembly.schema/1.113.0",
+      "hashPath": "amazon.cdk.cloudassembly.schema.1.113.0.nupkg.sha512"
+    },
+    "Amazon.CDK.CXAPI/1.113.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0Mw46tZQhF/m/PT2xxWTdCuRLuQEt/BiXFJnBX+XuaDclzZ4kRAD1I8dIFa9ROzJuOx0qvl3DVLacbtSTa7Jjg==",
+      "path": "amazon.cdk.cxapi/1.113.0",
+      "hashPath": "amazon.cdk.cxapi.1.113.0.nupkg.sha512"
+    },
+    "Amazon.CDK.RegionInfo/1.113.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qwxrY1smnuClAEZoZ2nkQVY5IDdnMxLLliES9BXEFy9SNeq91ImKOs7VnofDgedI+dV+0PizPHDfn66+2Gl2/g==",
+      "path": "amazon.cdk.regioninfo/1.113.0",
+      "hashPath": "amazon.cdk.regioninfo.1.113.0.nupkg.sha512"
+    },
+    "Amazon.Core/0.21.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-WKgdD7Cq3ad3vY9ywOJpIOl+uKZTyH8lIkwDfiCsmzHa6NLQdfJUYlc68TW5G5WpRWTJ4JMAl/Ura29HOS0ezA==",
+      "path": "amazon.core/0.21.4",
+      "hashPath": "amazon.core.0.21.4.nupkg.sha512"
+    },
+    "Amazon.JSII.Runtime/1.30.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YTitZrtQpWHq+7+jszxgu2ua36HeEA7bEkwENsG3rvSOr22CV8tfpi5hNXeeOCZc/pQ05fWW6eAUqFY2QMyoXg==",
+      "path": "amazon.jsii.runtime/1.30.0",
+      "hashPath": "amazon.jsii.runtime.1.30.0.nupkg.sha512"
+    },
+    "Amazon.S3/0.21.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-v2GOMsmkhm0iZnJWeygI7EggxHL8qjoLwRQMetxp4w3ypV1LVz9r+6wMnZgrvkP91ag34zNIhT9erntx1d/fTw==",
+      "path": "amazon.s3/0.21.5",
+      "hashPath": "amazon.s3.0.21.5.nupkg.sha512"
+    },
+    "AWSSDK.Core/3.7.0.43": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QLYFa6U6F9PL1ad0zmy9C6Pug6CqJfZ8bSGmx0hCWPUUEmw0Ma8DERDN8/AHGabIym+tYkH4aB4x7+7aB8+qPg==",
+      "path": "awssdk.core/3.7.0.43",
+      "hashPath": "awssdk.core.3.7.0.43.nupkg.sha512"
+    },
+    "AWSSDK.S3/3.7.1.13": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-n2V0Xy727VL1LjJ5dz9futi/CwsvK97d7zJzkCWIFQsILUipD/W72HVJOFYPbUASyfpxMaTF27ZYbFLJvayZig==",
+      "path": "awssdk.s3/3.7.1.13",
+      "hashPath": "awssdk.s3.3.7.1.13.nupkg.sha512"
+    },
+    "Carbon.Storage/3.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KTb8iZFEkOEOgKUsJHzGEYMe0KVTkpWG/ob45NTaLIhbSrY8K3lHM9Z1tqUWjTOO1+ZCuShz9nc35N4AdsD97w==",
+      "path": "carbon.storage/3.4.0",
+      "hashPath": "carbon.storage.3.4.0.nupkg.sha512"
+    },
+    "Constructs/3.3.69": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bokQf6+jwS1bU4HA+GgtvYunR+iaQnOrqJ/ufXrkT8OdsT51/6MAyah+TUcUbq/jj4XZ6b92gZYN74v+mPsImA==",
+      "path": "constructs/3.3.69",
+      "hashPath": "constructs.3.3.69.nupkg.sha512"
+    },
     "Humanizer.Core/2.8.26": {
       "type": "package",
       "serviceable": true,
@@ -2409,12 +2778,26 @@
       "path": "microsoft.extensions.caching.memory/5.0.0",
       "hashPath": "microsoft.extensions.caching.memory.5.0.0.nupkg.sha512"
     },
+    "Microsoft.Extensions.Configuration/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LN322qEKHjuVEhhXueTUe7RNePooZmS8aGid5aK2woX3NPjSnONFyKUc6+JknOS6ce6h2tCLfKPTBXE3mN/6Ag==",
+      "path": "microsoft.extensions.configuration/5.0.0",
+      "hashPath": "microsoft.extensions.configuration.5.0.0.nupkg.sha512"
+    },
     "Microsoft.Extensions.Configuration.Abstractions/5.0.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-ETjSBHMp3OAZ4HxGQYpwyGsD8Sw5FegQXphi0rpoGMT74S4+I2mm7XJEswwn59XAaKOzC15oDSOWEE8SzDCd6Q==",
       "path": "microsoft.extensions.configuration.abstractions/5.0.0",
       "hashPath": "microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Configuration.Binder/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Of1Irt1+NzWO+yEYkuDh5TpT4On7LKl98Q9iLqCdOZps6XXEWDj3AKtmyvzJPVXZe4apmkJJIiDL7rR1yC+hjQ==",
+      "path": "microsoft.extensions.configuration.binder/5.0.0",
+      "hashPath": "microsoft.extensions.configuration.binder.5.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.DependencyInjection/5.0.1": {
       "type": "package",
@@ -2444,12 +2827,33 @@
       "path": "microsoft.extensions.logging.abstractions/5.0.0",
       "hashPath": "microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512"
     },
+    "Microsoft.Extensions.Logging.Configuration/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-N3/d0HeMRnBekadbZlmbp+In8EvNNkQHSdbtRzjrGVckdZWpYs5GNrAfaYqVplDFW0WUedSaFJ3khB50BWYGsw==",
+      "path": "microsoft.extensions.logging.configuration/5.0.0",
+      "hashPath": "microsoft.extensions.logging.configuration.5.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging.Console/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jH0wbWhfvXjOVmCkbra4vbiovDtTUIWLQjCeJ7Xun3h4AHvwfzm7V7wlsXKs3tNnPrsCxZ9oaV0vUAgGY1JxOA==",
+      "path": "microsoft.extensions.logging.console/5.0.0",
+      "hashPath": "microsoft.extensions.logging.console.5.0.0.nupkg.sha512"
+    },
     "Microsoft.Extensions.Options/5.0.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-CBvR92TCJ5uBIdd9/HzDSrxYak+0W/3+yxrNg8Qm6Bmrkh5L+nu6m3WeazQehcZ5q1/6dDA7J5YdQjim0165zg==",
       "path": "microsoft.extensions.options/5.0.0",
       "hashPath": "microsoft.extensions.options.5.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Options.ConfigurationExtensions/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-280RxNJqOeQqq47aJLy5D9LN61CAWeuRA83gPToQ8B9jl9SNdQ5EXjlfvF66zQI5AXMl+C/3hGnbtIEN+X3mqA==",
+      "path": "microsoft.extensions.options.configurationextensions/5.0.0",
+      "hashPath": "microsoft.extensions.options.configurationextensions.5.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.Primitives/5.0.0": {
       "type": "package",
@@ -2465,12 +2869,12 @@
       "path": "microsoft.openapi/1.2.3",
       "hashPath": "microsoft.openapi.1.2.3.nupkg.sha512"
     },
-    "Newtonsoft.Json/12.0.2": {
+    "Newtonsoft.Json/13.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-rTK0s2EKlfHsQsH6Yx2smvcTCeyoDNgCW7FEYyV01drPlh2T243PR2DiDXqtC5N4GDm4Ma/lkxfW5a/4793vbA==",
-      "path": "newtonsoft.json/12.0.2",
-      "hashPath": "newtonsoft.json.12.0.2.nupkg.sha512"
+      "sha512": "sha512-ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
+      "path": "newtonsoft.json/13.0.1",
+      "hashPath": "newtonsoft.json.13.0.1.nupkg.sha512"
     },
     "Newtonsoft.Json.Bson/1.0.2": {
       "type": "package",
@@ -2954,7 +3358,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Extensions.Configuration.Binder/5.0.0.0": {
+    "Microsoft.Extensions.Configuration.Binder.Reference/5.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -2964,7 +3368,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Extensions.Configuration/5.0.0.0": {
+    "Microsoft.Extensions.Configuration.Reference/5.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -3084,12 +3488,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Extensions.Logging.Configuration/5.0.0.0": {
+    "Microsoft.Extensions.Logging.Configuration.Reference/5.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Extensions.Logging.Console/5.0.0.0": {
+    "Microsoft.Extensions.Logging.Console.Reference/5.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -3124,7 +3528,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Extensions.Options.ConfigurationExtensions/5.0.0.0": {
+    "Microsoft.Extensions.Options.ConfigurationExtensions.Reference/5.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

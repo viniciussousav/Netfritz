@@ -7,12 +7,12 @@ using Netfritz.Services;
 
 namespace Netfritz.Controllers
 {
-    public class S3StorageController
+    public class S3StorageControlador
     {
         private readonly IFitaRepository _fitaRepository;
         private readonly S3StorageService _s3StorageService;
 
-        public S3StorageController(IFitaRepository fitaRepository)
+        public S3StorageControlador(IFitaRepository fitaRepository)
         {
             _fitaRepository = fitaRepository;
             _s3StorageService = S3StorageService.GetInstance();

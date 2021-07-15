@@ -1,170 +1,65 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Netfritz.Context;
+﻿using Microsoft.AspNetCore.Mvc;
 using Netfritz.Core.Entities;
 using Netfritz.Core.Repositories;
-using System;
-using System.Linq;
+using Netfritz.Core.Repositories.Compras;
+using Netfritz.Core.Repositories.Fitas;
 
 namespace Netfritz.Controllers
 {
-    public class CadastroController
+    [Route("api")]
+    [ApiController]
+    public class CadastroController : ControllerBase
     {
-        private readonly IUsuarioRepository _usuarioRepository;
+        private Fachada _fachada;
 
-        public CadastroController(IUsuarioRepository usuarioRepository)
+        public CadastroController(IUsuarioRepository usuarioRepository, IFitaRepository fitaRepository, ICompraRepository compraRepository)
         {
-            _usuarioRepository = usuarioRepository;
+            _fachada = new Fachada(usuarioRepository, fitaRepository, compraRepository);
         }
 
         // Cliente
 
-        public IActionResult ListarClientes()
+        [HttpPost("cliente/cadastrar")]
+        public IActionResult CadastrarCliente([FromBody] ClienteEntity cliente)
         {
-            try
-            {
-                var clientes = _usuarioRepository.GetClientes();
-
-                return Response.CreateResponse(clientes, StatusCodes.Status200OK);
-            }
-            catch (Exception)
-            {
-                return Response.CreateResponse("Não foi possível listar os clientes", StatusCodes.Status500InternalServerError);
-            }
+            return _fachada.CadastrarCliente(cliente);
         }
-
+       
+        [HttpGet("clientes/{id}")]
         public IActionResult ObterCliente(string id)
         {
-            try
-            {
-                var cliente = _usuarioRepository.GetCliente(id);
-
-                if (cliente is null)
-                {
-                    return Response.CreateResponse("Cliente não encontrado", StatusCodes.Status404NotFound);
-                }
-
-                return Response.CreateResponse(cliente, StatusCodes.Status200OK);
-            }
-            catch (Exception)
-            {
-                return Response.CreateResponse("Não foi possível obter o cliente", StatusCodes.Status500InternalServerError);
-            }
+            return _fachada.ObterCliente(id);
         }
 
-        public IActionResult CadastrarCliente(ClienteEntity cliente)
+
+        [HttpPut("clientes/{id}/atualizar")]
+        public IActionResult AtualizarCliente(string id, [FromBody] ClienteEntity cliente)
         {
-            try
-            {
-                if (CheckEmail(cliente.Email))
-                {
-                    return Response.CreateResponse("O email já está cadastrado", StatusCodes.Status409Conflict);
-                }
-
-                _usuarioRepository.InserirCliente(cliente);
-
-                return Response.CreateResponse(cliente, StatusCodes.Status201Created);
-            }
-            catch (Exception)
-            {
-                return Response.CreateResponse("Não foi possível realizar o cadastro", StatusCodes.Status500InternalServerError);
-            }
+            return _fachada.AtualizarCliente(id, cliente);
         }
 
-        public IActionResult AtualizarCliente(string id, ClienteEntity cliente)
-        {
-            try
-            {
-                var findCliente = _usuarioRepository.GetCliente(id);
-
-                if (findCliente is null)
-                {
-                    return Response.CreateResponse("Cliente não encontrado", StatusCodes.Status404NotFound);
-                }
-
-                _usuarioRepository.AtualizarCliente(findCliente);
-
-                return Response.CreateResponse("Cliente atualizado com sucesso", StatusCodes.Status200OK);
-
-            }
-            catch (Exception)
-            {
-
-                return Response.CreateResponse("Não foi possível atualizar o cliente", StatusCodes.Status500InternalServerError);
-            }
-        }
-
+        [HttpDelete("clientes/{id}/remover")]
         public IActionResult RemoverCliente(string id)
         {
-            try
-            {
-                var findCliente = _usuarioRepository.GetCliente(id);
-
-                if (findCliente is null)
-                {
-                    return Response.CreateResponse("Cliente não encontrado", StatusCodes.Status404NotFound);
-                }
-
-                _usuarioRepository.RemoverCliente(id);
-
-                return Response.CreateResponse("Cliente deletado com sucesso", StatusCodes.Status200OK);
-
-            }
-            catch (Exception)
-            {
-
-                return Response.CreateResponse("Não foi possível deletar o cliente", StatusCodes.Status500InternalServerError);
-            }
+            return _fachada.RemoverCliente(id);
         }
 
-        // Administrador
-
-        public IActionResult ObterAdministrador(string id)
+        [HttpGet("clientes/{id}/historico-compras")]
+        public IActionResult ListarCompras(string id)
         {
-            try
-            {
-                var administrador = _usuarioRepository.GetAdministrador(id);
-
-                if (administrador is null)
-                {
-                    return Response.CreateResponse("Administrador não encontrado", StatusCodes.Status404NotFound);
-                }
-
-                return Response.CreateResponse(administrador, StatusCodes.Status200OK);
-            }
-            catch (Exception)
-            {
-                return Response.CreateResponse("Não foi possível obter o administrador", StatusCodes.Status500InternalServerError);
-            }
+            return _fachada.ListarCompras(id);
         }
 
-        public IActionResult CadastrarAdministrador(AdministradorEntity administrador)
+        [HttpPost("clientes/{id}/comprar")]
+        public IActionResult RealizarCompra(string id, [FromBody] string fitaId)
         {
-            try
-            {
-                var checkEmail = CheckEmail(administrador.Email);
-
-                if (checkEmail)
-                {
-                    return Response.CreateResponse("O email já está cadastrado", StatusCodes.Status409Conflict);
-                }
-
-                _usuarioRepository.InserirAdministrador(administrador);
-
-                return Response.CreateResponse(administrador, StatusCodes.Status201Created);
-            }
-            catch (Exception)
-            {
-                return Response.CreateResponse("Não foi possível cadastrar o administrador", StatusCodes.Status201Created);
-
-            }
+            return _fachada.RealizarCompra(id, fitaId);
         }
 
-        public bool CheckEmail(string email)
+        [HttpPut("clientes/{id}/avaliar-compra/{compraId}")]
+        public IActionResult AvaliarCompra(string id, string compraId, [FromBody] AvaliacaoEntity avaliacao)
         {
-            return _usuarioRepository.GetClientes().Any(c => c.Email == email) || 
-                _usuarioRepository.GetAdministradores().Any(a => a.Email == email);
+            return _fachada.AvaliarCompra(id, compraId, avaliacao);
         }
-
     }
 }

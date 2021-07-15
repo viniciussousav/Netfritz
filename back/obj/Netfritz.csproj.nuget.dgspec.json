@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/home/viniciussousav/Documents/CIn/2020.2/Netfritz/back/Netfritz.csproj": {}
+    "C:\\Users\\User\\Desktop\\GitFolders\\Netfritz\\back\\Netfritz.csproj": {}
   },
   "projects": {
-    "/home/viniciussousav/Documents/CIn/2020.2/Netfritz/back/Netfritz.csproj": {
+    "C:\\Users\\User\\Desktop\\GitFolders\\Netfritz\\back\\Netfritz.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/viniciussousav/Documents/CIn/2020.2/Netfritz/back/Netfritz.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\GitFolders\\Netfritz\\back\\Netfritz.csproj",
         "projectName": "Netfritz",
-        "projectPath": "/home/viniciussousav/Documents/CIn/2020.2/Netfritz/back/Netfritz.csproj",
-        "packagesPath": "/home/viniciussousav/.nuget/packages/",
-        "outputPath": "/home/viniciussousav/Documents/CIn/2020.2/Netfritz/back/obj/",
+        "projectPath": "C:\\Users\\User\\Desktop\\GitFolders\\Netfritz\\back\\Netfritz.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\GitFolders\\Netfritz\\back\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/viniciussousav/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -109,7 +111,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.301/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
