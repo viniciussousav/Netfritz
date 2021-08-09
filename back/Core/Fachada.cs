@@ -108,21 +108,18 @@ namespace Netfritz.Controllers
         }
 
         // Fitas
-
-        [HttpGet("fitas")]
+        
         public IActionResult PesquisarFitas(string busca)
         {
             return _fitaControlador.PesquisarFitas(busca);
         }
         
-        [HttpGet("fitas/{id}")]
         public IActionResult PesquisarFita(string id)
         {
             return _fitaControlador.ObterFita(id);
         }
-
-        [HttpPut("fitas/{id}/upload-imagem")]
-        public async Task<IActionResult> UploadImageFita(string id, IFormFile imagem)
+        
+        public async Task<IActionResult> UploadImageFita(string id, [FromForm] IFormFile imagem)
         {
             return await _s3StorageControlador.UploadImagem(id, imagem);
         }

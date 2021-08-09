@@ -29,9 +29,9 @@ namespace Netfritz.Controllers
         }
 
         [HttpPut("fitas/upload-imagem/{fitaId}")]
-        public async Task<IActionResult> UploadImageFita(string id, [FromForm] IFormFile imagem)
+        public async Task<IActionResult> UploadImageFita(string fitaId, [FromForm] IFormFile imagem)
         {
-            return await _fachada.UploadImageFita(id, imagem);
+            return await _fachada.UploadImageFita(fitaId, imagem);
         }
 
         [HttpPut("fitas/atualizar-fita/{fitaId}")]

@@ -18,7 +18,7 @@ namespace Netfritz.Controllers
             _s3StorageService = S3StorageService.GetInstance();
         }
         
-        public async Task<IActionResult> UploadImagem (string fitaId, IFormFile file)
+        public async Task<IActionResult> UploadImagem (string fitaId, [FromForm] IFormFile file)
         {
             var fita = _fitaRepository
                 .GetFitas()

@@ -50,7 +50,7 @@ namespace Netfritz.Services
 
             await _client.PutObjectAsync(putObjectRequest);
             
-            return $"https://{BucketName}.s3-{_regionEndpoint.SystemName}.amazonaws.com/netfritz/{fitaId}";
+            return $"https://{BucketName}.s3-{_regionEndpoint.SystemName}.amazonaws.com/{fitaId}";
         }
     }
 }
